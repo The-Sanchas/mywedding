@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# env files — NEVER commit secrets
+.env
+.env.local
+.env*.local
+
+# macOS
+.DS_Store
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# project-specific
+AI/
+.claude
+francis-lai-la-lecon-particuliere.mp3
+couple.jpg
+seal.png
+index.html

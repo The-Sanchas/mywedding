@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+/* ── Wedding color & animation theme ─────────────────────────────── */
+@theme inline {
+  --color-w-bg:          #F2E9D6;
+  --color-w-velvet:      #29190F;
+  --color-w-brown-btn:   #6B4A36;
+  --color-w-text:        #6B5641;
+  --color-w-text-dark:   #4A3526;
+  --color-w-accent:      #9C6B45;
+  --color-w-gold:        #B8975A;
+  --color-w-cream:       #F4E6D2;
+  --color-w-rsvp-bg:     #FBF7EF;
+  --color-w-rsvp-bg2:    #F4ECDD;
+  --color-w-rsvp-text:   #3B3A30;
+  --color-w-rsvp-label:  #8A8366;
+  --color-w-rsvp-muted:  #6B5B4A;
+
+  --font-cormorant: var(--font-cormorant-var), serif;
+  --font-lora:      var(--font-lora-var),      serif;
+
+  --animate-pulse-heart: pulseHeart 2.2s ease-in-out infinite;
+  --animate-soft-pulse:  softPulse  2.6s ease-in-out infinite;
+}
+
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.09); }
+}
+@keyframes softPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.46; }
+}
+@keyframes spinDisc {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: auto; }
+
+body {
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255,251,242,.45), rgba(255,251,242,0) 52%),
+    linear-gradient(180deg, rgba(242,233,214,.55), rgba(232,221,199,.6));
+  background-attachment: fixed;
+  background-color: #F2E9D6;
+  color: #6B5641;
+  font-family: var(--font-lora), serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Map button ──────────────────────────────────────────────────── */
+.map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  background: #6B4A36;
+  color: #F6EEE2;
+  padding: 15px 28px;
+  border-radius: 40px;
+  font-family: var(--font-lora), serif;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 12px 26px rgba(74, 53, 38, .28);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.map-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px rgba(74, 53, 38, .4);
+}
+
+/* ── RSVP ────────────────────────────────────────────────────────── */
+.rsvp-card {
+  background: linear-gradient(160deg, #FBF7EF, #F4ECDD);
+  border-radius: 14px;
+  padding: 38px 34px;
+  box-shadow: 0 24px 54px rgba(40, 28, 18, .32);
+}
+.rsvp-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--font-lora), serif;
+  font-size: 16px;
+  color: #3B3A30;
+  background: #FFFDF8;
+  border: 1.5px solid rgba(184, 151, 90, .45);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.rsvp-input:focus {
+  border-color: #9C6B45;
+  box-shadow: 0 0 0 3px rgba(156, 107, 69, .15);
+}
+.rsvp-attend-btn {
+  flex: 1;
+  min-width: 160px;
+  padding: 14px 16px;
+  font-family: var(--font-lora), serif;
+  font-size: 15px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all .2s ease;
+  background: #FFFDF8;
+  color: #6B5B4A;
+  border: 1.5px solid rgba(160, 120, 70, .45);
+}
+.rsvp-attend-btn.sel-yes { background: #6B4A36; color: #FBF3E8; border-color: #6B4A36; }
+.rsvp-attend-btn.sel-no  { background: #9C5A47; color: #FBF3E8; border-color: #9C5A47; }
+
+.rsvp-drink-btn {
+  padding: 10px 18px;
+  font-family: var(--font-lora), serif;
+  font-size: 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all .2s ease;
+  background: #FFFDF8;
+  color: #6B5B4A;
+  border: 1.5px solid rgba(160, 120, 70, .45);
+}
+.rsvp-drink-btn.sel { background: #B8975A; color: #fff; border-color: #B8975A; }
+.rsvp-drink-btn:hover:not(.sel) { background: #F5EDD8; border-color: rgba(160, 120, 70, .65); }
+
+.rsvp-submit {
+  width: 100%;
+  padding: 16px;
+  font-family: var(--font-lora), serif;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: #FBF3E8;
+  background: linear-gradient(160deg, #6E4C37, #46301F);
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(58, 38, 22, .36);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.rsvp-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(58, 38, 22, .48);
+}
+
+/* ── Cutout figures — smaller on mobile ─────────────────────────── */
+@media (max-width: 600px) {
+  .cutout-figure img { height: 140px !important; }
+}
+
+
+/* ── Mobile ─────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .rsvp-card    { padding: 26px 18px; }
+  .rsvp-attend-btn { min-width: 120px; padding: 12px 10px; font-size: 14px; }
+  .map-btn      { padding: 13px 20px; font-size: 14px; }
+}
