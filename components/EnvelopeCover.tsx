@@ -7,7 +7,8 @@ export default function EnvelopeCover({ onOpen }: { onOpen: () => void }) {
   const coverRef = useRef<HTMLDivElement>(null)
   const flapRef  = useRef<HTMLDivElement>(null)
   const sealRef  = useRef<HTMLDivElement>(null)
-  const [opening, setOpening] = useState(false)
+  const [opening,    setOpening]    = useState(false)
+  const [sealLoaded, setSealLoaded] = useState(false)
 
   useEffect(() => {
     document.documentElement.style.overflow = 'hidden'
@@ -122,9 +123,11 @@ export default function EnvelopeCover({ onOpen }: { onOpen: () => void }) {
 
       {/* lines 51-53 — wax seal wrapper div 196×207 */}
       <div ref={sealRef} style={{ position:'absolute', left:'50%', top:'52%',
-        transform:'translate(-50%,-50%)', width:196, height:207, zIndex:8 }}>
+        transform:'translate(-50%,-50%)', width:196, height:207, zIndex:8,
+        opacity: sealLoaded ? 1 : 0, transition: 'opacity .3s ease' }}>
         <Image src="/seal-wax-cut.png" alt="Воскова печатка"
           width={196} height={207}
+          onLoad={() => setSealLoaded(true)}
           style={{ width:'100%', height:'100%', display:'block',
             filter:'drop-shadow(0 16px 24px rgba(8,4,1,.6))' }}
           priority />
