@@ -122,14 +122,19 @@ export default function EnvelopeCover({ onOpen }: { onOpen: () => void }) {
       </svg>
 
       {/* lines 51-53 — wax seal wrapper div 196×207 */}
+      {/* fake shadow — окремий div щоб не було прямокутника від filter на iOS */}
+      <div style={{ position:'absolute', left:'50%', top:'calc(52% + 80px)',
+        transform:'translateX(-50%)', width:130, height:32,
+        borderRadius:'50%', background:'rgba(8,4,1,.65)',
+        filter:'blur(18px)', zIndex:7, pointerEvents:'none' }} />
+
       <div ref={sealRef} style={{ position:'absolute', left:'50%', top:'52%',
         transform:'translate(-50%,-50%)', width:196, height:207, zIndex:8,
         opacity: sealLoaded ? 1 : 0, transition: 'opacity .3s ease' }}>
         <Image src="/seal-wax-cut.png" alt="Воскова печатка"
           width={196} height={207}
           onLoad={() => setSealLoaded(true)}
-          style={{ width:'100%', height:'100%', display:'block',
-            filter:'drop-shadow(0 16px 24px rgba(8,4,1,.6))' }}
+          style={{ width:'100%', height:'100%', display:'block' }}
           priority />
       </div>
 
