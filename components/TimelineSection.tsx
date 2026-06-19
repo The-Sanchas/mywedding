@@ -106,7 +106,7 @@ export default function TimelineSection() {
       >
         <p style={{ fontFamily:'var(--font-lora-var),serif', fontSize:12, letterSpacing:'.4em',
           textTransform:'uppercase', color:'#C79B6F', marginBottom:12 }}>
-          Тайминг свята
+          Таймінг свята
         </p>
         <h2 style={{ fontFamily:'var(--font-cormorant-var),serif', fontWeight:600,
           fontSize:'clamp(34px,6vw,42px)', color:'#F4E6D2' }}>
